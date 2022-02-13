@@ -1,0 +1,23 @@
+{
+  "name": "learn-wa-bot",
+  "version": "1.0.0",
+  "description": "latian membuat wa bot dengan menggunakan whatsapp-web.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CahBantul/learn-wa-bot.git"
+  },
+  "author": "CahBantul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CahBantul/learn-wa-bot/issues"
+  },
+  "homepage": "https://github.com/CahBantul/learn-wa-bot#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "whatsapp-web.js": "^1.15.6"
+  }
+}
