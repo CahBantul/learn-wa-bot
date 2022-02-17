@@ -47,16 +47,33 @@ client.on('authenticated', (session) => {
   });
 });
 
+let start = false;
+
 client.on('message', async (msg) => {
   // filter chat not from group
-  if (!msg.from.includes('-')) {
-    const response = await fetch(
-      `https://api.simsimi.net/v2/?text=${msg.body}&lc=id`
+  if (msg.body == 'Simi diem') {
+    client.sendMessage(
+      'status@broadcast',
+      'WA ini telah diambil alih oleh pemiliknya'
     );
-    const data = await response.json();
-    msg.reply(data.success);
-
-    console.log(data);
+    console.log(`simi diem`);
+    msg.reply('oke Boss');
+    start = false;
+  } else if (!msg.from.includes('-') && start == true) {
+    if (msg.isStatus == false) {
+      const response = await fetch(
+        `https://api.simsimi.net/v2/?text=${msg.body}&lc=id`
+      );
+      const data = await response.json();
+      msg.reply(data.success);
+      console.log(data);
+      console.log(msg);
+    }
+  } else if (msg.body == 'Simi start') {
+    client.sendMessage('status@broadcast', 'WA ini diambil alih oleh bot simi');
+    console.log(`start`);
+    msg.reply('halo');
+    start = true;
   }
 });
 
